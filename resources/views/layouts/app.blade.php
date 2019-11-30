@@ -73,17 +73,25 @@ h2{
 }
 
 h3{
-	
 	color : orange;
 	font-family:sf sports night;
 	font-size:40px;
 }
 
 h4{
-	
 	color : orange;
 	font-family:sf sports night;
 	font-size:20px;
+}
+
+h5{
+	color : white;
+	font-size:15px;
+}
+
+h6{
+	color : white;
+	font-size:40px;
 }
 
 table{

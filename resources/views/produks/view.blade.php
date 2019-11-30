@@ -7,10 +7,10 @@
     @if(count($produk) > 0)
         @foreach($produk as $produk)
         <div class="box">
-            <img style="width:100%" src="/storage/gambar/{{$produk->gambar}}">
+            <img style="width:300px;height:250px" src="/storage/gambar/{{$produk->gambar}}">
             <h3><a href="/produk/{{$produk->id}}">{{$produk->merek}}</a></h3>
-            <small>Written on {{$produk->created_at}}</small>
-            <p>{{$produk->description}}</p>
+            <h5><small>Written on {{$produk->created_at}}</small>
+            <p>{{$produk->description}}</p></h5>
         </div>
         @endforeach
     @else
