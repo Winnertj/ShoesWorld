@@ -14,8 +14,10 @@ class BestController extends Controller
      */
     public function index()
     {
+
         $best = Best::all();
         return view('bests.view')->with('best', $best);
+        return view('bests.index');
     }
 
     /**
