@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Best;
 
 class BestController extends Controller
 {
@@ -60,7 +61,7 @@ class BestController extends Controller
     {
         $best = Best::find('$id');
         return view('bests.edit')->with('best',$best);
-        //
+        
     }
 
     /**
