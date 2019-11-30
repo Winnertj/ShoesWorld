@@ -13,7 +13,8 @@ class BestController extends Controller
      */
     public function index()
     {
-        //
+        $best = Best::all();
+        return view('bests.view')->with('best', $best);
     }
 
     /**
@@ -23,7 +24,7 @@ class BestController extends Controller
      */
     public function create()
     {
-        //
+        return view('bests.create');
     }
 
     /**
@@ -45,6 +46,7 @@ class BestController extends Controller
      */
     public function show($id)
     {
+        
         //
     }
 
@@ -56,6 +58,8 @@ class BestController extends Controller
      */
     public function edit($id)
     {
+        $best = Best::find('$id');
+        return view('bests.edit')->with('best',$best);
         //
     }
 
@@ -79,6 +83,9 @@ class BestController extends Controller
      */
     public function destroy($id)
     {
+        $best = Best::find($id);
+        $best->delete();
+        return redirect('/best')->with('Success,Delete Successful');
         //
     }
 }
