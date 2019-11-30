@@ -14,7 +14,6 @@
         @endforeach
     @else
         <h2>Tidak Ada Best Seller</h2>
-        <a href="/produk/{{$best->id}}">{{$best->merek}} </a>
     @endif
 </div>
 </div></center>
