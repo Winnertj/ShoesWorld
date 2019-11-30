@@ -15,4 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/upload', function () {
+    return view('produks.upload');
+});
+
 Route::resource('/produk','ProdukController');
+
+Route::resource('/best','BestController');

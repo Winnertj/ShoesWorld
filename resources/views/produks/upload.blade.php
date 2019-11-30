@@ -5,7 +5,7 @@
 		<center><div class="tulis"> UPLOAD </div></center>
 	</div>
 <p><br>
-	{!! Form::open(['action' => 'PostController@store','method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+	{!! Form::open(['action' => 'ProdukController@store','method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 		<center><div class="form-group">
 			{{Form::label('merek', 'Merek Sepatu')}}
 			{{Form::text('merek', '',['class' => 'form-control','placeholder' => 'Merek'])}}
