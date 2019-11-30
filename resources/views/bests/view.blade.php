@@ -14,7 +14,7 @@
         @endforeach
     @else
         <h2>Tidak Ada Best Seller</h2>
-        <h3><a href="/best/"> Upload </a></h3>
+        <h3><a href="/produk/"> Choose Product </a></h3>
     @endif
 </div>
 </div></center>
