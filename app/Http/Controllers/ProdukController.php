@@ -25,7 +25,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('produks.upload');
     }
 
     /**
@@ -47,7 +47,8 @@ class ProdukController extends Controller
      */
     public function show($id)
     {
-        //
+        $produk = Produk::find($id);
+        return view('produks.show')->with('produk',$produk);
     }
 
     /**
@@ -58,7 +59,8 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produk = Produk::find($id);
+        return view('produks.edit')->with('produk',$produk);
     }
 
     /**
@@ -81,6 +83,8 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produk = Produk::find($id);
+        $produk->delete();
+        return redirect('/produk')->with('success','Delete Success');
     }
 }

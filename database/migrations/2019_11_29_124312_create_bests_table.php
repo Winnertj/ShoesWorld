@@ -15,6 +15,8 @@ class CreateBestsTable extends Migration
     {
         Schema::create('bests', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('merek',50);
+            $table->integer('harga');
             $table->timestamps();
         });
     }
