@@ -14,7 +14,7 @@ class AddGambarToProduks extends Migration
     public function up()
     {
         Schema::table('produks', function (Blueprint $table) {
-            //
+            $table->string('gambar');
         });
     }
 

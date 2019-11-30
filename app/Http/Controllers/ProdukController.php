@@ -36,7 +36,42 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'merek' => 'required' ,
+            'ukuran' => 'required' ,
+            'warna' => 'required' ,
+            'harga' => 'required' ,
+            'description' => 'required' ,
+            'gambar' => 'required|image|max:1999'
+        ]);
+
+        //Handle File Upload
+        if($request -> hasFile('gambar')){
+            // Get filename with the extension
+            $fileNameWithExt = $request -> file('gambar')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request -> file('gambar')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload image
+            $path = $request->file('gambar')->storeAs('public/gambar', $fileNameToStore);
+        } else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        //create post
+        $produk = new Produk;
+        $produk->merek = $request->input('merek');
+        $produk->ukuran = $request->input('ukuran');
+        $produk->warna = $request->input('warna');
+        $produk->harga = $request->input('harga');
+        $produk->description = $request->input('description');
+        $produk->gambar = $fileNameToStore;
+        $produk->save();
+
+        return redirect('/produk')->with('success','Upload Success');
     }
 
     /**
@@ -72,7 +107,41 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'merek' => 'required' ,
+            'ukuran' => 'required' ,
+            'warna' => 'required' ,
+            'harga' => 'required' ,
+            'description' => 'required' 
+        ]);
+
+        //Handle File Upload
+        if($request -> hasFile('gambar')){
+            // Get filename with the extension
+            $fileNameWithExt = $request -> file('gambar')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request -> file('gambar')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload image
+            $path = $request->file('gambar')->storeAs('public/gambar', $fileNameToStore);
+        }
+
+        //create post
+        $produk = Produk::find($id);
+        $produk->merek = $request->input('merek');
+        $produk->ukuran = $request->input('ukuran');
+        $produk->warna = $request->input('warna');
+        $produk->harga = $request->input('harga');
+        $produk->description = $request->input('description');
+        if($request -> hasFile('gambar')){
+            $produk->gambar = $fileNameToStore;
+        }
+        $produk->save();
+
+        return redirect('/produk')->with('success','Edit Success');
     }
 
     /**
