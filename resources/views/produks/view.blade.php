@@ -1,6 +1,5 @@
 @extends('layouts.app') 
 @section('content') 
-
 <center><div class="bg">
 <h3>Daftar Produk</h3>
 <div class="konten">
@@ -9,8 +8,8 @@
         <div class="box">
             <img style="width:300px;height:250px" src="/storage/gambar/{{$produk->gambar}}">
             <h3><a href="/produk/{{$produk->id}}">{{$produk->merek}}</a></h3>
-            <h5><small>Written on {{$produk->created_at}}</small>
-            <p>{{$produk->description}}</p></h5>
+            <h6><small>Written on {{$produk->created_at}}</small>
+            <p>{{$produk->description}}</p></h6>
         </div>
         @endforeach
     @else

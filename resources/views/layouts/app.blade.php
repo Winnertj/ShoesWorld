@@ -86,12 +86,12 @@ h4{
 
 h5{
 	color : white;
-	font-size:15px;
+	font-size:25px;
 }
 
 h6{
 	color : white;
-	font-size:40px;
+	font-size:15px;
 }
 
 table{
@@ -204,7 +204,6 @@ table{
     </head>
     <body>
         @include('inc.header')
-        @include('inc.message')
         @yield('content')
         @include('inc.footer')
     </body>
