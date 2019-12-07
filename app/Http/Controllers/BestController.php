@@ -66,6 +66,7 @@ class BestController extends Controller
             'id' => $produk->id,
             'merek' => $produk->merek,
             'harga' => $produk->harga,
+            'gambar' => $produk->gambar,
         ]);
 
         return redirect('/best')->with('success','Success');
